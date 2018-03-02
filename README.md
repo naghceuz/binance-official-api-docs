@@ -9,6 +9,6 @@
 rest-api.md | 关于REST API 的细节
 errors.md | 关于REST API 可能出现的报错
 web-socket-streams.md | 数据流和有效负荷的细节 
-user-data-stream.md | Details on the dedicated account stream
+user-data-stream.md |关于制定账户数据流的细节
 wapi-api.md | 提币API (/wapi) 的细节 
 

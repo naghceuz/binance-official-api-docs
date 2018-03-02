@@ -4,11 +4,11 @@
 * 除文档内描述的其余数据流，端点，参数和有效负荷等内容都是 **不被官方支持的**; **使用他们给你带来风险由你自行承担.**
 
 
-Name | Description
+子文档名称 | 文档描述
 ------------ | ------------ 
-rest-api.md | Details on the Rest API (/api)
-errors.md | Descriptions of possible error messages from the Rest API
-web-socket-streams.md | Details on available streams and payloads
+rest-api.md | 关于REST API的细节
+errors.md | 关于REST API可能出现的报错
+web-socket-streams.md | 数据流和有效负荷的细节 
 user-data-stream.md | Details on the dedicated account stream
-wapi-api.md | Details on the Withdrawal API (/wapi)
+wapi-api.md | 提币API(/wapi)的细节 
 

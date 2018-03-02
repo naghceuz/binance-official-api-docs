@@ -1,5 +1,5 @@
 # 币安API及数据流官方中文文档
-* Official Announcements regarding changes, downtime, etc. to the API and Streams will be reported here: **https://t.me/binance_api_announcements**
+* 任何官方关于API及数据流的通告会在以下组群里更新: **https://t.me/binance_api_announcements**
 * Streams, endpoints, parameters, payloads, etc. decscribed in the documents in this repository are considered **official** and **supported**.
 * The use of any other streams, endpoints, parameters, or payloads, etc. is **not supported**; **use them at your own risk and with no guarantees.**
 

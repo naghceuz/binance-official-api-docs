@@ -1,4 +1,4 @@
-# Public Rest API for Binance (2018-01-14)
+# 币安对外开放的 Rest API (最后一次更新：2018-01-14)
 # General API Information
 * The base endpoint is: **https://api.binance.com**
 * All endpoints return either a JSON object or array.

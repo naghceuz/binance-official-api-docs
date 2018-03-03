@@ -1,4 +1,5 @@
 # 币安对外开放的 Rest API (最后一次更新：2018-01-14)
+# 当你发现中文版的信息和英文版信息冲突时，一切以英文版为准
 # 通用的API信息
 * 端点的地址是: **https://api.binance.com**
 * 所有端点都会返回一个JSON格式的对象或数组.
@@ -25,19 +26,17 @@
 * 如果一个变量同时以`query string` 和 `request body`的
   形式发送，那么`query string` 的变量会被优先使用.
 
-# LIMITS
-* The `/api/v1/exchangeInfo` `rateLimits` array contains objects related to the exchange's `REQUESTS` and `ORDER` rate limits.
-* A 429 will be returned when either rather limit is violated.
-* Each route has a `weight` which determines for the number of requests each endpoint counts for. Heavier endpoints and endpoints that do operations on multiple symbols will have a heavier `weight`.
-* When a 429 is recieved, it's your obligation as an API to back off and not spam the API.
-* **Repeatedly violating rate limits and/or failing to back off after receiving 429s will result in an automated IP ban (http status 418).**
-* IP bans are tracked and **scale in duration** for repeat offenders, **from 2 minutes to 3 days**.
+# 限制
+*  `/api/v1/exchangeInfo` `rateLimits` 这两个数组包含了交易所请求（`REQUESTS`）下单 (`ORDER` )限制.
+* 当请求次数或下单次数的限制被打破是，会返回429的错误码.
+* 每一条线路都存在一个`weight` 用来决定每一个端点发送的请求次数。承载请求次数多的端点会有更重的`weight` .
+* 当你看到 429，你有责任和义务停止进行API的请求，不滥用API服务. 
+* **重复的打破请求限制次数可能会让你的IP地址被请求自动屏蔽(418状态).**
+* 屏蔽IP会被记录然后根据打破请求限制的严重程度，限制**2分钟到3天**
 
-# Endpoint security type
-* Each endpoint has a security type that determines the how you will
-  interact with it.
-* API-keys are passed into the Rest API via the `X-MBX-APIKEY`
-  header.
+# 端点安全类型
+* 每一个端点都有一个安全类型，你可以根据你的需要选择安全类型. 
+* API-keys 会通过 `X-MBX-APIKEY` 的抬头字段传给 Rest API. 
 * API-keys and secret-keys **are case sensitive**.
 * API-keys can be configured to only access certain types of secure endpoints.
  For example, one API-key could be used for TRADE only, while another API-key

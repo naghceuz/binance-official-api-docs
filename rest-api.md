@@ -37,7 +37,8 @@
 # 端点安全类型
 * 每一个端点都有一个安全类型，你可以根据你的需要选择安全类型. 
 * API-keys 会通过 `X-MBX-APIKEY` 的抬头字段传给 Rest API. 
-* API-keys and secret-keys **are case sensitive**.
+* API-keys 和 secret-keys 都是要**区分大小写的(case sensitive)**
+* API-keys 可以配置成只针对具体的几种安全端点. 
 * API-keys can be configured to only access certain types of secure endpoints.
  For example, one API-key could be used for TRADE only, while another API-key
  can access everything except for TRADE routes.

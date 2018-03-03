@@ -1,36 +1,29 @@
 # 币安对外开放的 Rest API (最后一次更新：2018-01-14)
-# General API Information
-* The base endpoint is: **https://api.binance.com**
-* All endpoints return either a JSON object or array.
-* Data is returned in **ascending** order. Oldest first, newest last.
-* All time and timestamp related fields are in milliseconds.
-* HTTP `4XX` return codes are used for for malformed requests;
-  the issue is on the sender's side.
-* HTTP `429` return code is used when breaking a request rate limit.
-* HTTP `418` return code is used when an IP has been auto-banned for continuing to send requests after receiving `429` codes.
-* HTTP `5XX` return codes are used for internal errors; the issue is on
-  Binance's side.
-* HTTP `504` return code is used when the API successfully sent the message
-but not get a response within the timeout period.
-It is important to **NOT** treat this as a failure; the execution status is
-**UNKNOWN** and could have been a success.
-* Any endpoint can retun an ERROR; the error payload is as follows:
+# 通用的API信息
+* 端点的地址是: **https://api.binance.com**
+* 所有端点都会返回一个JSON格式的对象或数组.
+* 数据是根据**升序**排列的. 最老的排在最前面，最新的排在最后面.
+* 所有的时间单位都是以毫秒（milliseconds）计算.
+* HTTP 返回的 `4XX` 的错误码是用来表述不良请求的；一般出现这样的错误码很有可能是请求方出了问题.                      
+* HTTP 返回 `429` 表示请求突破了请求频次限制. 
+* HTTP 返回 `418` 表示因为请求次数过多，所以IP被自动屏蔽了. 
+* HTTP 返回 `5XX` 的错误码用来表示内部错误，一般这种错误是由币安这边的服务出错造成的.
+* HTTP 返回 `504` 表示API成功的发送了信息但是在有效时间内没有得到回复.
+非常重要的是，请**不要** 把这种返回看成一种报错，执行状态可能是**UNKNOWN** 但实际上执行已经成功了
+* 任何端点都可能返回错误(ERROR); 错误的有效负载如下:
 ```javascript
 {
   "code": -1121,
   "msg": "Invalid symbol."
 }
 ```
-
-* Specific error codes and messages defined in another document.
-* For `GET` endpoints, parameters must be sent as a `query string`.
-* For `POST`, `PUT`, and `DELETE` endpoints, the parameters may be sent as a
-  `query string` or in the `request body` with content type
-  `application/x-www-form-urlencoded`. You may mix parameters between both the
-  `query string` and `request body` if you wish to do so.
-* Parameters may be sent in any order.
-* If a parameter sent in both the `query string` and `request body`, the
-  `query string` parameter will be used.
+* 更具体的报错信息记录在了这个git上的另一个文档里. 
+* 对于 `GET` 端点, 请求参数必须用`query string`的方式发送.
+* 对于 `POST`, `PUT`, 和 `DELETE` 这样的端点, 请求参数可以用 `query string` 或者用 `request body` 和指定的文本类型
+  `application/x-www-form-urlencoded`. 你也可以混合用 `query string` 和 `request body` 发送请求.
+* 请求变量可以是任意顺序的
+* 如果一个变量同时以`query string` 和 `request body`的
+  形式发送，那么`query string` 的变量会被优先使用.
 
 # LIMITS
 * The `/api/v1/exchangeInfo` `rateLimits` array contains objects related to the exchange's `REQUESTS` and `ORDER` rate limits.
